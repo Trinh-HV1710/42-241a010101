@@ -1,0 +1,22 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f172a; color: #f8fafc; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+.container { background: #1e293b; padding: 30px; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); width: 100%; max-width: 600px; text-align: center; }
+h1, h2 { color: #38bdf8; margin-bottom: 15px; }
+.student-info { color: #94a3b8; margin-bottom: 25px; font-size: 14px; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-top: 20px; }
+.menu-card { background: #334155; color: white; padding: 20px; border-radius: 8px; text-decoration: none; transition: all 0.2s; border: 1px solid #475569; }
+.menu-card:hover { background: #38bdf8; color: #0f172a; transform: translateY(-2px); }
+.menu-card h3 { font-size: 16px; margin-bottom: 5px; }
+.menu-card p { font-size: 12px; opacity: 0.8; }
+.back-btn { display: inline-block; margin-bottom: 15px; color: #38bdf8; text-decoration: none; font-weight: bold; float: left; }
+.back-btn:hover { text-decoration: underline; }
+.btn { background: #22c55e; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 10px; }
+.btn:hover { background: #16a34a; }
+.output-box { background: #0f172a; padding: 15px; border-radius: 6px; margin-top: 15px; font-family: monospace; font-size: 16px; border: 1px solid #334155; color: #facc15; }
+.accordion { margin-bottom: 10px; text-align: left; }
+.accordion-header { background: #334155; color: white; width: 100%; padding: 12px; border: none; text-align: left; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+.accordion-header:hover { background: #475569; }
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #0f172a; border-radius: 0 0 6px 6px; padding: 0 12px; }
+.accordion-header.active + .accordion-content { padding: 12px; }
+.page-btn { background: #334155; color: white; border: 1px solid #475569; border-radius: 4px; }
+.active-page { background: #38bdf8 !important; color: #0f172a !important; font-weight: bold; }

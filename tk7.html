@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài TK7 - Tạo Chuỗi Ngẫu Nhiên</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="42.html" class="back-btn">&larr; Về trang chủ</a>
+        <h2>Bài TK7: Tạo Chuỗi Ngẫu Nhiên (8 ký tự)</h2>
+        <button onclick="generateString()" class="btn">Tạo Mật Khẩu</button>
+        <div id="result-string" class="output-box">--------</div>
+    </div>
+
+    <script>
+        function generateString() {
+            const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < 8; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('result-string').textContent = result;
+        }
+    </script>
+</body>
+</html>

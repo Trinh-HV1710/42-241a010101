@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài TK8 - Chuyển Đổi Hex sang RGB</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="42.html" class="back-btn">&larr; Về trang chủ</a>
+        <h2>Bài TK8: Chuyển Đổi Màu Hex sang RGB</h2>
+        
+        <div style="margin: 15px 0;">
+            <input type="text" id="hex-input" placeholder="Ví dụ: #FF0000" style="padding: 8px; width: 200px; border-radius: 4px; border: 1px solid #475569; background: #0f172a; color: white;">
+            <button onclick="convertToRGB()" class="btn" style="margin-top:0;">Chuyển đổi</button>
+        </div>
+        
+        <div id="rgb-result" class="output-box">rgb(0, 0, 0)</div>
+        <div id="color-box" style="width: 60px; height: 60px; margin: 15px auto 0 auto; border-radius: 8px; border: 2px solid white; background: #000;"></div>
+    </div>
+
+    <script>
+        function hexToRgb(hex) {
+            let c = hex.replace('#', '').trim();
+            if (c.length === 3) {
+                c = c.split('').map(char => char + char).join('');
+            }
+            if (c.length !== 6) return null;
+            const num = parseInt(c, 16);
+            return `rgb(${(num >> 16) & 255}, ${(num >> 8) & 255}, ${num & 255})`;
+        }
+
+        function convertToRGB() {
+            const hex = document.getElementById('hex-input').value;
+            const rgb = hexToRgb(hex);
+            const resBox = document.getElementById('rgb-result');
+            const colorBox = document.getElementById('color-box');
+            
+            if (rgb) {
+                resBox.textContent = rgb;
+                colorBox.style.backgroundColor = rgb;
+            } else {
+                resBox.textContent = 'Mã Hex không hợp lệ!';
+            }
+        }
+    </script>
+</body>
+</html>

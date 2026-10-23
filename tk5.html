@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài TK5 - Accordion Đơn Giản</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="42.html" class="back-btn">&larr; Về trang chủ</a>
+        <h2>Bài TK5: Accordion Đơn Giản</h2>
+        
+        <div class="accordion" style="margin-top: 20px;">
+            <button class="accordion-header">Tiêu đề Accordion 1 (Bấm vào để mở/đóng)</button>
+            <div class="accordion-content">
+                <p>Đây là nội dung ẩn của phần 1. Khi bấm vào tiêu đề, nội dung sẽ trượt xuống/lên mượt mà sử dụng classList.toggle() kết hợp max-height và CSS transition.</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <button class="accordion-header">Tiêu đề Accordion 2 (Bấm vào để mở/đóng)</button>
+            <div class="accordion-content">
+                <p>Nội dung chi tiết của phần 2 được hiển thị linh hoạt tùy theo thao tác tương tác của người dùng.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.classList.toggle('active');
+                const content = header.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

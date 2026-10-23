@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài K4 - Phân Trang Danh Sách</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="42.html" class="back-btn">&larr; Về trang chủ</a>
+        <h2>Bài K4: Phân Trang Danh Sách (50 Mục)</h2>
+        
+        <ul id="item-list" style="list-style: none; padding: 0; min-height: 250px; margin-top: 15px;"></ul>
+        <div id="pagination" style="display: flex; gap: 5px; margin-top: 15px; justify-content: center; flex-wrap: wrap;"></div>
+    </div>
+
+    <script>
+        const items = Array.from({ length: 50 }, (_, i) => `Mục dữ liệu số ${i + 1}`);
+        const itemsPerPage = 10;
+        let currentPage = 1;
+
+        function displayList(page) {
+            const listEl = document.getElementById('item-list');
+            listEl.innerHTML = '';
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedItems = items.slice(start, end);
+
+            paginatedItems.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                li.style.padding = '8px';
+                li.style.background = '#334155';
+                li.style.margin = '4px 0';
+                li.style.borderRadius = '4px';
+                listEl.appendChild(li);
+            });
+        }
+
+        function setupPagination() {
+            const paginationEl = document.getElementById('pagination');
+            paginationEl.innerHTML = '';
+            const pageCount = Math.ceil(items.length / itemsPerPage);
+
+            for (let i = 1; i <= pageCount; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i;
+                btn.className = `page-btn ${i === currentPage ? 'active-page' : ''}`;
+                btn.style.padding = '6px 12px';
+                btn.style.cursor = 'pointer';
+                btn.onclick = () => {
+                    currentPage = i;
+                    displayList(currentPage);
+                    setupPagination();
+                };
+                paginationEl.appendChild(btn);
+            }
+        }
+
+        displayList(currentPage);
+        setupPagination();
+    </script>
+</body>
+</html>
